@@ -1,36 +1,71 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory System</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<body class="bg-gray-100">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+<div class="flex h-screen">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+    <div class="w-64 bg-gray-900 text-white flex flex-col">
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+        <div class="p-6 text-2xl font-bold border-b border-gray-700">
+            Inventory
         </div>
-    </body>
+
+        <nav class="flex-1 p-4 space-y-2">
+
+            <a href="/dashboard" class="block px-4 py-2 rounded hover:bg-gray-700">
+                Dashboard
+            </a>
+
+            <a href="/products" class="block px-4 py-2 rounded hover:bg-gray-700">
+                Products
+            </a>
+
+            <a href="/stock" class="block px-4 py-2 rounded hover:bg-gray-700">
+                Stock
+            </a>
+
+        </nav>
+
+        <div class="p-4 border-t border-gray-700">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="w-full text-left px-4 py-2 hover:bg-gray-700 rounded">
+                    Logout
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="flex-1 flex flex-col">
+
+        <header class="bg-white shadow px-6 py-4 flex justify-between items-center">
+
+            <h1 class="text-xl font-semibold">
+                @yield('title')
+            </h1>
+
+            <div>
+                <span class="text-gray-600">
+                    {{ auth()->user()->name }}
+                </span>
+            </div>
+
+        </header>
+
+        <main class="flex-1 p-6 overflow-y-auto">
+            @yield('content')
+        </main>
+
+    </div>
+
+</div>
+
+</body>
 </html>

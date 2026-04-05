@@ -12,13 +12,13 @@
     </div>
 
     <div class="bg-white p-6 rounded shadow">
-        <h2 class="text-gray-500">Stock Items</h2>
-        <p class="text-3xl font-bold">0</p>
+        <h2 class="text-gray-500">Stock items (units)</h2>
+        <p class="text-3xl font-bold">{{ $totalStockUnits }}</p>
     </div>
 
     <div class="bg-white p-6 rounded shadow">
-        <h2 class="text-gray-500">Low Stock</h2>
-        <p class="text-3xl font-bold text-red-500">0</p>
+        <h2 class="text-gray-500">Low stock (&lt; {{ $lowStockThreshold }} units)</h2>
+        <p class="text-3xl font-bold text-red-500">{{ $lowStockCount }}</p>
     </div>
 
 </div>

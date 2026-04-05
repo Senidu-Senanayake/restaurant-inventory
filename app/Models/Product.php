@@ -14,6 +14,7 @@ class Product extends Model
         'description',
         'price',
         'image',
+        'quantity',
     ];
 
     /**
@@ -23,6 +24,7 @@ class Product extends Model
     {
         return [
             'price' => 'decimal:2',
+            'quantity' => 'integer',
         ];
     }
 }

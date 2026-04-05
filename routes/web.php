@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
 
 // Home page
@@ -14,9 +15,9 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/stock', function () {
-        return view('stock.index');
-    })->name('stock.index');
+    Route::get('/stock', [StockController::class, 'index'])->name('stock.index');
+    Route::post('/stock/add', [StockController::class, 'add'])->name('stock.add');
+    Route::post('/stock/remove', [StockController::class, 'remove'])->name('stock.remove');
 
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');

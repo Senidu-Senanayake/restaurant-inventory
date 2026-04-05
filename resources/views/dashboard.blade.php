@@ -8,7 +8,7 @@
 
     <div class="bg-white p-6 rounded shadow">
         <h2 class="text-gray-500">Total Products</h2>
-        <p class="text-3xl font-bold">0</p>
+        <p class="text-3xl font-bold">{{ $productCount }}</p>
     </div>
 
     <div class="bg-white p-6 rounded shadow">

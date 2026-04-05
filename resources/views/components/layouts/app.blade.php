@@ -10,6 +10,7 @@
 
 <div class="flex h-screen">
 
+    <!-- SIDEBAR -->
     <div class="inventory-sidebar flex h-full w-64 shrink-0 flex-col">
 
         <div class="inventory-sidebar__brand p-6 text-2xl font-bold">
@@ -43,12 +44,14 @@
 
     </div>
 
+    <!-- MAIN CONTENT -->
     <div class="flex-1 flex flex-col">
 
+        <!-- TOP HEADER -->
         <header class="bg-white shadow px-6 py-4 flex justify-between items-center">
 
             <h1 class="text-xl font-semibold">
-                @yield('title')
+                {{ $header ?? 'Dashboard' }}
             </h1>
 
             <div>
@@ -59,8 +62,9 @@
 
         </header>
 
+        <!-- PAGE CONTENT -->
         <main class="flex-1 p-6 overflow-y-auto">
-            @yield('content')
+            {{ $slot }}
         </main>
 
     </div>

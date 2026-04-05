@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+ * Sidebar uses explicit colors (not only utilities) so contrast stays correct
+ * when the dev server/build has not regenerated Tailwind, or utilities are purged.
+ */
+.inventory-sidebar {
+    background-color: #111827;
+    color: #f9fafb;
+}
+
+.inventory-sidebar__brand {
+    border-bottom: 1px solid #374151;
+}
+
+.inventory-sidebar a {
+    color: #f9fafb;
+    text-decoration: none;
+}
+
+.inventory-sidebar a:hover {
+    background-color: #374151;
+}
+
+.inventory-sidebar__footer {
+    border-top: 1px solid #374151;
+}
+
+.inventory-sidebar button {
+    color: #f9fafb;
+    background-color: transparent;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+.inventory-sidebar button:hover {
+    background-color: #374151;
+}

@@ -6,9 +6,10 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
 
-// Home page
 Route::get('/', function () {
-    return view('welcome');
+    return auth()->check()
+        ? redirect()->route('dashboard')
+        : redirect()->route('login');
 });
 
 // Protected routes (only logged users)

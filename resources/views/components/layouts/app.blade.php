@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Inventory System</title>
+    @include('partials.favicon')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 

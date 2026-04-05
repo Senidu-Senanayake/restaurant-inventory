@@ -7,6 +7,8 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        @include('partials.favicon')
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -16,9 +18,13 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            <div class="shrink-0">
+                <a href="{{ url('/') }}" class="inline-block focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded-md">
+                    <img src="{{ asset('images/chinese-dragon-cafe-logo.png') }}"
+                         alt="Chinese Dragon Cafe — Est. 1942"
+                         width="160"
+                         height="200"
+                         class="h-32 w-auto max-h-40 object-contain sm:h-36 sm:max-h-44">
                 </a>
             </div>
 
